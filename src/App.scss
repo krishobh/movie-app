@@ -53,22 +53,38 @@
   .left-movie-container {
     @extend .container;
     left: 0;
+
+    .movie-tile {
+      @extend .container;
+      width: 400px;
+      height: 100px;
+      border: 1px solid black;
+      position: relative;
+      @include background($color: #64c86420);
+
+      &:hover {
+        @include background($color: #64c86470);
+        transition: 0.3s;
+      }
+    }
   }
 
   .right-movie-container { 
     @extend .container;
     right: 0;
+    
     .movie-tile {
+      width: 400px;
+      height: 100px;
+      border: 1px solid black;
+      position: relative;
       @include background($color: #c8646420);
-    }
-  }
 
-  .movie-tile { 
-    width: 400px;
-    height: 100px;
-    border: 1px solid black;
-    position: relative;
-    @include background($color: #64c86420);
+      &:hover {
+        @include background($color: #c8646470);
+        transition: 0.3s;
+      }
+    }
   }
 
   .movie-title {
@@ -77,7 +93,7 @@
   }
 
   .button-action {
-      position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
   }
