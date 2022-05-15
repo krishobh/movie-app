@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
-import MovieTile from "./components/MovieTile";
+import MoviesList from "./components/MoviesList";
+import SearchBox from "./components/SearchBox";
 import { Movie, movies } from "./movies";
 
 const App:React.FC = () => {
@@ -27,31 +28,26 @@ const App:React.FC = () => {
   return (
     <div className="App movie-container">
       <div className="left-movie-container">
-        <div>
-          <input
-            placeholder="Type for searcing..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        {leftList.map((movie) => {
-          if (!movie.title.includes(search)) {
-            return false;
-          }
 
-          return <MovieTile movie={movie} parentMethod={onAddClick} actionType={'Add'} key={movie.id}/>
-
-        })}
+        <SearchBox search={search} setSearch={setSearch}/>
+        
+        <MoviesList 
+          movieList={leftList} 
+          parentMethod={onAddClick} 
+          actionType={'Add'} 
+          search={search}
+        />
+        
       </div>
       <div className="right-movie-container">
-        {
-          rightList.map((movie) => {
-            if (!movie.title.includes(search)) {
-              return false;
-            }
-            return <MovieTile movie={movie} parentMethod={onRemoveClick} actionType={'Remove'} key={movie.id}/>
-          })
-        }
+
+        <MoviesList
+          movieList={rightList}
+          parentMethod={onRemoveClick}
+          actionType={'Remove'}
+          search={search}
+        />
+     
       </div>
     </div>
   );
