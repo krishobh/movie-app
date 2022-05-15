@@ -7,13 +7,13 @@ interface Props {
 
 const SearchBox:React.FC<Props> = ({search, setSearch}) => {
   return (
-    <div>
+    <section role="searchbox">
         <input
-            placeholder="Type for searcing..."
+            placeholder="Type for searching..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />
-    </div>
+    </section>
   )
 }
 

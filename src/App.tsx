@@ -26,11 +26,11 @@ const App:React.FC = () => {
   };
 
   return (
-    <div className="App movie-container">
-      <div className="left-movie-container">
+    <section className="App movie-container">
+      <section className="left-movie-container">
 
         <SearchBox search={search} setSearch={setSearch}/>
-        
+
         <MoviesList 
           movieList={leftList} 
           parentMethod={onAddClick} 
@@ -38,8 +38,8 @@ const App:React.FC = () => {
           search={search}
         />
         
-      </div>
-      <div className="right-movie-container">
+      </section>
+      <section className="right-movie-container">
 
         <MoviesList
           movieList={rightList}
@@ -48,8 +48,8 @@ const App:React.FC = () => {
           search={search}
         />
      
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 

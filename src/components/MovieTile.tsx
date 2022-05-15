@@ -10,17 +10,17 @@ interface Props {
 
 const MovieTile:React.FC<Props> = ({movie, parentMethod, actionType}) => {  
     return (
-      <div className="movie-tile">
-        <div className="movie-title">{movie.title}</div>
-        <div>
-          Release date:{" "}
-          {differenceInDays(new Date(), fromUnixTime(movie.release_date))}{" "}
+      <article className="movie-tile">
+        <h4 className="movie-title">{movie.title}</h4>
+        <p>
+          Release date :
+          <time>{differenceInDays(new Date(), fromUnixTime(movie.release_date)) + " "}</time>
           days ago
-        </div>
+        </p>
         <button className="button-action" onClick={() => parentMethod(movie)}>
           {actionType}
         </button>
-      </div>
+      </article>
     )
 }
 
