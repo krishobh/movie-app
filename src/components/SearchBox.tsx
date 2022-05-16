@@ -1,4 +1,5 @@
 import React from 'react'
+import "./SearchBox.scss";
 
 interface Props {
 	search: string,
@@ -7,12 +8,13 @@ interface Props {
 
 const SearchBox:React.FC<Props> = ({search, setSearch}) => {
   return (
-    <section role="searchbox">
+    <section role="searchbox" className="search-box">
         <input
             placeholder="Search here for movie"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />
+        <button onClick={() => setSearch('')}>Clear</button>
     </section>
   )
 }
