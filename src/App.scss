@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
   position: relative;
 }
@@ -14,19 +14,13 @@
   }
 }
 
-.App-header {
+.app-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  min-height: 3vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -42,22 +36,48 @@
   background-color: $color;
 }
 
-.container {
-  position: absolute;
-  border: 2px solid black;
-  width: 400px;
-}
-
 .movie-container {
 
-  .left-movie-container {
-    @extend .container;
-    left: 0;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1.8fr 0.1fr;
+  grid-template-areas:
+    "header header header header"
+    "section section section section"
+    "footer footer footer footer";
+  grid-gap: 0.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #004d40;
+  text-align: center;
 
+  header {
+    grid-area: header;
+    height: 4vh;
+  }
+  
+  section {
+    grid-area: section;
+  }
+
+  header  {
+    grid-column: span 4;
+  }
+  
+  section.grid-item {
+    grid-column: span 2;
+  }
+
+  input {
+    min-height: 4vh;
+    min-width: 30vh;
+  }
+
+  .left-movie-container {
+    min-height: 50vh;
     .movie-tile {
-      @extend .container;
-      width: 400px;
-      height: 100px;
       border: 1px solid black;
       position: relative;
       @include background($color: #64c86420);
@@ -69,13 +89,9 @@
     }
   }
 
-  .right-movie-container { 
-    @extend .container;
-    right: 0;
-
+  .right-movie-container {
+    min-height: 50vh;
     .movie-tile {
-      width: 400px;
-      height: 100px;
       border: 1px solid black;
       position: relative;
       @include background($color: #c8646420);

@@ -9,7 +9,7 @@ const SearchBox:React.FC<Props> = ({search, setSearch}) => {
   return (
     <section role="searchbox">
         <input
-            placeholder="Type for searching..."
+            placeholder="Search here for movie"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />

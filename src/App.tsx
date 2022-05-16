@@ -26,8 +26,9 @@ const App:React.FC = () => {
   };
 
   return (
-    <section className="App movie-container">
-      <section className="left-movie-container">
+    <section className="app movie-container">
+      <header className="app-header">Movie App</header>
+      <section className="left-movie-container grid-item">
 
         <SearchBox search={search} setSearch={setSearch}/>
 
@@ -39,7 +40,8 @@ const App:React.FC = () => {
         />
         
       </section>
-      <section className="right-movie-container">
+      <section className="right-movie-container grid-item">
+        <h1>Selected Movies List</h1>
 
         <MoviesList
           movieList={rightList}
@@ -49,6 +51,7 @@ const App:React.FC = () => {
         />
      
       </section>
+      
     </section>
   );
 }
