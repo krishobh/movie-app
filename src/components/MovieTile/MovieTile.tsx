@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { IMovie } from '../../models/models';
 import "./MovieTile.scss";
 import MoviesPoster from './MoviePoster';
@@ -32,4 +32,4 @@ const MovieTile:React.FC<Props> = ({movie, parentMethod, actionType}) => {
   )
 }
 
-export default MovieTile
+export default memo(MovieTile);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react';
 import { IMovie } from '../../models/models';
 
 interface Props {
@@ -17,4 +17,4 @@ const MovieActions:React.FC<Props> = ({ parentMethod, actionType, movie }) => {
   )
 }
 
-export default MovieActions;
+export default memo(MovieActions);

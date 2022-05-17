@@ -18,9 +18,14 @@ const MoviesList:React.FC<Props> = ({ movieList, parentMethod, actionType, query
   const isSearchQueryNotMatchesTitle = (text: string) => {
     const re = new RegExp(query,'i');
     const position = text.search(re);
-    
+
     return position === -1;
   }
+
+  /*
+   *    TODO : Update the movie list with infinite scroll or calling API while scroll and load.
+   *    this will reduce the load time and DOM rendering time and increase performance.
+   */
 
   return (
     <>

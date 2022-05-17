@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react';
 
 interface Props {
 	poster: string
@@ -12,4 +12,4 @@ const MoviesPoster:React.FC<Props> = ({ poster }) => {
   )
 }
 
-export default MoviesPoster;
+export default memo(MoviesPoster);

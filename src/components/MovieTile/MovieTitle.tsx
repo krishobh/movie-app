@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react';
 
 interface Props {
 	title: string
@@ -12,4 +12,4 @@ const MoviesTitle:React.FC<Props> = ({ title }) => {
   )
 }
 
-export default MoviesTitle;
+export default memo(MoviesTitle);

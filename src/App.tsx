@@ -4,6 +4,7 @@ import MoviesRightList from "./components/MoviesRightList";
 import MoviesLeftList from "./components/MoviesLeftList";
 import { movies } from "./models/movies";
 import { IMovie } from "./models/models";
+import Immutable from "immutable";
 
 const App:React.FC = () => {
   const [leftList, setLeftList] = useState<IMovie[]>(movies);
@@ -13,6 +14,7 @@ const App:React.FC = () => {
   const onAddClick = (e: React.FormEvent, movie: IMovie) => {
     e.preventDefault();
 
+    // TODO : Update with 'Immutable' - for further optimisation.
     setRightList([...rightList, movie]);
 
     const newLeftList = leftList.filter((item) => item.id !== movie.id);
@@ -26,11 +28,24 @@ const App:React.FC = () => {
   const onRemoveClick = (e: React.FormEvent, movie: IMovie) => {
     e.preventDefault();
 
+    // TODO : Update with 'Immutable'.
     setLeftList([...leftList, movie]);
 
     const newRightList = rightList.filter((item) => item.id !== movie.id);
     setRightList(newRightList);
   };
+
+  /*
+   *  TODO : Real webservice call to fetch data rather than hard-coding in constnt variable.
+   *  Call the API only while 'search' state value get updating by useEffect Hook as below.
+   * 
+   *  useEffect(() => {
+   *      API call logic..
+   *  }, [search]);
+   * 
+   *  Show Activity Loader while fetching API. Show Error message in toaster.
+   *  
+   */
 
   return (
     <section className="app movie-container">

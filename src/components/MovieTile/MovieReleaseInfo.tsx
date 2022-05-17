@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react';
 import { differenceInDays, fromUnixTime } from "date-fns";
 
 interface Props {
@@ -17,4 +17,4 @@ const MovieReleaseInfo:React.FC<Props> = ({ releaseDate }) => {
   )
 }
 
-export default MovieReleaseInfo;
+export default memo(MovieReleaseInfo);
