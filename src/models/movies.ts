@@ -1,13 +1,6 @@
-export type Movie = {
-  id: string;
-  title: string;
-  poster: string;
-  overview: string;
-  release_date: number;
-  genres: string[];
-};
+import { IMovie } from '../models/models';
 
-export const movies: Movie[] = [
+export const movies: IMovie[] = [
   {
     id: "287947",
     title: "Shazam!",

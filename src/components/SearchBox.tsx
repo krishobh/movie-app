@@ -7,15 +7,25 @@ interface Props {
 };
 
 const SearchBox:React.FC<Props> = ({search, setSearch}) => {
+  const searchMovie = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearch(query);
+  }
+  const clearSearch = () => {
+    setSearch('');
+  }
+  const handleChange = (event:React.FormEvent) => {
+    event.preventDefault();
+  }
   return (
-    <section role="searchbox" className="search-box">
+    <form role="searchbox" className="search-box" onSubmit={handleChange}>
         <input
             placeholder="Search here for movie"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={searchMovie}
         />
-        <button onClick={() => setSearch('')}>Clear</button>
-    </section>
+        <button onClick={clearSearch}>Clear</button>
+    </form>
   )
 }
 

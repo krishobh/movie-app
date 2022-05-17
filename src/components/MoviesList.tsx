@@ -1,9 +1,9 @@
 import React from 'react'
-import { Movie } from '../movies';
-import MovieTile from "./MovieTile";
+import { IMovie } from '../models/models';
+import MovieTile from "./MovieTile/MovieTile";
 
 interface Props {
-	movieList: Movie[],
+	movieList: IMovie[],
 	parentMethod: Function,
   actionType: string,
   search: string
@@ -13,7 +13,7 @@ const MoviesList:React.FC<Props> = ({ movieList, parentMethod, actionType, searc
   return (
     <>
       {
-        movieList.map((movie:Movie) => {
+        movieList.map((movie:IMovie) => {
             if (!movie.title.includes(search)) {
                 return false;
             }
