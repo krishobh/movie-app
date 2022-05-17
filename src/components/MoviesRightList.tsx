@@ -5,10 +5,10 @@ import MoviesList from './MoviesList';
 interface Props {
     movieList: IMovie[],
     parentMethod: Function,
-    search: string
+    query: string
 };
 
-const MoviesRightList:React.FC<Props> = ({ parentMethod, movieList, search }) => {
+const MoviesRightList:React.FC<Props> = ({ parentMethod, movieList, query }) => {
   return (
     <section className="right-movie-container grid-item">
         
@@ -18,7 +18,7 @@ const MoviesRightList:React.FC<Props> = ({ parentMethod, movieList, search }) =>
           movieList={movieList}
           parentMethod={parentMethod}
           actionType={'Remove'}
-          search={search}
+          query={query}
         />
      
     </section>

@@ -10,7 +10,7 @@ interface Props {
 const MovieActions:React.FC<Props> = ({ parentMethod, actionType, movie }) => {
   return (
     <div className="grid-item button-action">
-        <button onClick={() => parentMethod(movie)}>
+        <button onClick={(e) => parentMethod(e, movie)}>
           {actionType}
         </button>
     </div>

@@ -6,13 +6,14 @@ import { movies } from "./models/movies";
 import { IMovie } from "./models/models";
 
 const App:React.FC = () => {
-  const [leftList, setLeftList] = useState(movies);
+  const [leftList, setLeftList] = useState<IMovie[]>(movies);
   const [rightList, setRightList] = useState<IMovie[]>([]);
   const [search, setSearch] = useState("");
 
-  const onAddClick = (movie: IMovie) => {
-    rightList.push(movie);
-    setRightList(rightList);
+  const onAddClick = (e: React.FormEvent, movie: IMovie) => {
+    e.preventDefault();
+
+    setRightList([...rightList, movie]);
 
     const newLeftList = leftList.filter((item) => item.id !== movie.id);
     setLeftList(newLeftList);
@@ -22,9 +23,10 @@ const App:React.FC = () => {
     }
   };
 
-  const onRemoveClick = (movie: IMovie) => {
-    leftList.push(movie);
-    setLeftList(leftList);
+  const onRemoveClick = (e: React.FormEvent, movie: IMovie) => {
+    e.preventDefault();
+
+    setLeftList([...leftList, movie]);
 
     const newRightList = rightList.filter((item) => item.id !== movie.id);
     setRightList(newRightList);
@@ -35,9 +37,9 @@ const App:React.FC = () => {
 
       <header className="app-header">Movie App</header>
 
-      <MoviesLeftList search={search} setSearch={setSearch} movieList={leftList} parentMethod={onAddClick}/>
+      <MoviesLeftList query={search} setSearch={setSearch} movieList={leftList} parentMethod={onAddClick}/>
 
-      <MoviesRightList search={search} movieList={rightList} parentMethod={onRemoveClick}/>
+      <MoviesRightList query={search} movieList={rightList} parentMethod={onRemoveClick}/>
       
     </section>
   );

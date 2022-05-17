@@ -6,21 +6,21 @@ import SearchBox from './SearchBox';
 interface Props {
 	movieList: IMovie[],
 	parentMethod: Function,
-  search: string,
+  query: string,
   setSearch: Function
 };
 
-const MoviesLeftList:React.FC<Props> = ({ parentMethod, movieList, setSearch, search }) => {
+const MoviesLeftList:React.FC<Props> = ({ parentMethod, movieList, setSearch, query }) => {
   return (
     <section className="left-movie-container grid-item">
 
-        <SearchBox search={search} setSearch={setSearch}/>
+        <SearchBox query={query} setSearch={setSearch}/>
 
         <MoviesList 
           movieList={movieList}
           parentMethod={parentMethod} 
           actionType={'Add'} 
-          search={search}
+          query={query}
         />
         
     </section>
