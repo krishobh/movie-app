@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import { IMovie } from '../models/models';
 import MoviesList from './MoviesList';
 import SearchBox from './SearchBox';
@@ -27,4 +27,4 @@ const MoviesLeftList:React.FC<Props> = ({ parentMethod, movieList, setSearch, qu
   )
 }
 
-export default MoviesLeftList;
+export default memo(MoviesLeftList);

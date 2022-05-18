@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./SearchBox.scss";
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 interface Props {
 	query: string,
 	setSearch: Function

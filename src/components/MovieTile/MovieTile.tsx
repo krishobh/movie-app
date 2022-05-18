@@ -17,7 +17,7 @@ const MovieTile:React.FC<Props> = ({movie, parentMethod, actionType}) => {
 
     <article className="grid movie-tile">
 
-      <MoviesPoster poster={movie.poster}/>
+      <MoviesPoster poster={movie.poster} overview={movie.overview}/>
 
       <MoviesTitle title={movie.title}/>
 

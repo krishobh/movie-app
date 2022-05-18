@@ -23,8 +23,8 @@ const MoviesList:React.FC<Props> = ({ movieList, parentMethod, actionType, query
   }
 
   /*
-   *    TODO : Update the movie list with infinite scroll or calling API while scroll and load.
-   *    this will reduce the load time and DOM rendering time and increase performance.
+   *  TODO : Update the movie list with infinite scroll or calling API while scroll and load.
+   *  this will reduce the load time and DOM rendering time and increase performance.
    */
 
   return (

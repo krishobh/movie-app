@@ -4,7 +4,7 @@ import MoviesRightList from "./components/MoviesRightList";
 import MoviesLeftList from "./components/MoviesLeftList";
 import { movies } from "./models/movies";
 import { IMovie } from "./models/models";
-import Immutable from "immutable";
+// import Immutable from "immutable";
 
 const App:React.FC = () => {
   const [leftList, setLeftList] = useState<IMovie[]>(movies);
@@ -15,7 +15,8 @@ const App:React.FC = () => {
     e.preventDefault();
 
     // TODO : Update with 'Immutable' - for further optimisation.
-    setRightList([...rightList, movie]);
+    const cloneMovie = Object.assign({}, movie);
+    setRightList([...rightList, cloneMovie]);
 
     const newLeftList = leftList.filter((item) => item.id !== movie.id);
     setLeftList(newLeftList);
@@ -29,7 +30,8 @@ const App:React.FC = () => {
     e.preventDefault();
 
     // TODO : Update with 'Immutable'.
-    setLeftList([...leftList, movie]);
+    const cloneMovie = Object.assign({}, movie);
+    setLeftList([...leftList, cloneMovie]);
 
     const newRightList = rightList.filter((item) => item.id !== movie.id);
     setRightList(newRightList);
